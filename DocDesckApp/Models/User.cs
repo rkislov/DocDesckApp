@@ -31,8 +31,8 @@ namespace DocDesckApp.Models
         public string Position { get; set; }
         //Группа
         [Display(Name = "Группа")]
-        public Guid? GroupId { get; set; }
-        public Group Group { get; set; }
+        public Guid? DepartmentId { get; set; }
+        public Department Department { get; set; }
         //Статус
         [Required]
         [Display(Name = "Статус")]

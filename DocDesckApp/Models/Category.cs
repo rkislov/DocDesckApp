@@ -10,6 +10,8 @@ namespace DocDesckApp.Models
     {
         public Guid Id { get; set; }
         [Required]
-        [Display(Name ="")]
+        [Display(Name ="Тип документа")]
+        [MaxLength(50, ErrorMessage ="Превышена максимальная длинна записи")]
+        public string Name { get; set;}
     }
 }
