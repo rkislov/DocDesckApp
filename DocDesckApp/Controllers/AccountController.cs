@@ -24,13 +24,16 @@ namespace DocDesckApp.Controllers
                 if(ValidateUser(model.UserName, model.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
                     if(Url.IsLocalUrl(returnUrl))
+
                     {
                         return Redirect(returnUrl);
                     }
+
                     else
                     {
-                        return RedirectToAction("Index", "Document");
+                        return RedirectToAction("Index", "User");
                     }
                 }
                 else
@@ -49,13 +52,17 @@ namespace DocDesckApp.Controllers
         private bool ValidateUser(string login, string password)
         {
             bool isValid = false;
+
             using (DocDeskContext _db = new DocDeskContext())
             {
                 try
                 {
+                    
+
                     User user = (from u in _db.Users
                                  where u.Login == login && u.Password == password
                                  select u).FirstOrDefault();
+
                     if (user != null)
                     {
                         isValid = true;

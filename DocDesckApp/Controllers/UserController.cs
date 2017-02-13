@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace DocDesckApp.Controllers
 {
-    [Authorize(Roles ="Администратор, Модератор, Исполнитель")]
+    [Authorize(Roles = "Администратор")]
     public class UserController : Controller
     {
         private DocDeskContext db = new DocDeskContext();
