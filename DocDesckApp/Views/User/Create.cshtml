@@ -53,7 +53,7 @@
             @Html.LabelFor(model => model.RoleId)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(model => model.RoleId, ViewBag.Departments as SelectList)
+            @Html.DropDownListFor(model => model.RoleId, ViewBag.Roles as SelectList)
             @Html.ValidationMessageFor(model => model.RoleId)
         </div>
 
@@ -63,7 +63,7 @@
     </fieldset>
 }
 
-@section Scripts{
+@*@section Scripts{
     @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
-    }
+    }*@
 
