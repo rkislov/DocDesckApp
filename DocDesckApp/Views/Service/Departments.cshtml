@@ -1,0 +1,34 @@
+﻿@model Department
+@using DocDesckApp.Models;
+
+@{
+    ViewBag.Title = "Группы";
+}
+
+<h2>Группы</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Новая группа</legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <p><input type="submit" value="Учесть" /></p>
+    </fieldset>
+}
+<table>
+    @foreach (Department item in ViewBag.Departments)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@Html.ActionLink("Удалить", "DeleteDepartment", new { id=item.Id})</td>
+        </tr>
+    }
+</table>
+
