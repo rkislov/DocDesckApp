@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Document>
+@using DocDesckApp.Models
+
+@{
+    ViewBag.Title = "Список документов";
+    int i = 0; //счетчик
+}
+
+<h2>Список документов</h2>
+<p>Всего документов: @(Model.Count<Document>())</p>
+<table>
+    @foreach (var item in Model) {
+        i++;
+     <tr>
+         <td><b>@i</b></td>
+         <td>
+             @if (item.Status == (int)DocumentStatus.Open)
+             {
+                 <img src="~/Content/pictures/status1.png" title="Документ поступил" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentStatus.Distributed)
+             {
+                <img src="~/Content/pictures/status2.png" title="Документ распределен" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentStatus.Processing)
+             {
+                <img src="~/Content/pictures/status3.png" title="Документ в процессе" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentStatus.Checking)
+             {
+                <img src="~/Content/pictures/status4.png" title="Документ на проверке" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentStatus.Closed)
+             {
+                <img src="~/Content/pictures/status5.png" title="Документ исполнен" class="tdImage" />
+             }
+         </td>
+         <td>
+             @if (item.Priority == (int)DocumentProirity.Low)
+             {
+                 <img src="~/Content/pictures/prior1.png" title="Низкий приоритет" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentProirity.Medium)
+             {
+                 <img src="~/Content/pictures/prior2.png" title="Средний приоритет" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentProirity.Hight)
+             {
+                <img src="~/Content/pictures/prior2.png" title="Высокий приоритет" class="tdImage" />
+             }
+             else if (item.Status == (int)DocumentProirity.Critical)
+             {
+                <img src="~/Content/pictures/prior2.png" title="Критичный распределен" class="tdImage" />
+             }
+         </td>
+         <td>
+             @if (item.File != null)
+             {
+                 <a href="/Document/Download/@item.Id"><img src="~/Content/pictures/filey.png" alt="@item.File" class="tdImage" /></a>
+             }
+             else
+             {
+                <img src="~/Content/pictures/filey.png" alt="Без файла" class="tdImage" />
+             }
+         </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.Lifecycle.Opened)
+         </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.Organization.ShortName)
+         </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.Number)
+         </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.Date)
+         </td>
+         <td>
+             @Html.DisplayFor(modelItem => item.ShortText)
+         </td>
+         <td>
+             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Описание документа" href="Document/Details/@item.Id"><img src="~/Content/pictures/info.png" class="tdImage" title="Описание документа" /></div>
+         </td>
+         @*<td>
+             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Исполнитель документа" href="Document/Executor/@item.ExecutorId"><img src="~/Content/pictures/executor.png" class="tdImage" title="Исполнитель документа" /></div>
+         </td>*@
+         <td>
+             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Жизненный цикл" href="Document/Lifecircle/@item.LifecycleId"><img src="~/Content/pictures/lifecycle.png" class="tdImage" title="Жизненный цикл" /></div>
+         </td>
+     </tr>
+    }
+</table>
+

@@ -1,17 +1,16 @@
-﻿@model Department
-@using DocDesckApp.Models;
-
+﻿@model Category
+@using DocDesckApp.Models
 @{
-    ViewBag.Title = "Группы";
+    ViewBag.Title = "Категории документов";
 }
 
-<h2>Группы</h2>
+<h2>Категории документов</h2>
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Новая группа</legend>
+        <legend>Категории документа</legend>
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
@@ -20,15 +19,15 @@
             @Html.ValidationMessageFor(model => model.Name)
         </div>
 
-        <p><input type="submit" value="Учесть" /></p>
+        <p><input type="submit" value="Сохранить" /></p>
     </fieldset>
 }
 <table>
-    @foreach (Department item in ViewBag.Departments)
+    @foreach (Category item in ViewBag.Categorys)
     {
         <tr>
             <td>@item.Name</td>
-            <td>@Html.ActionLink("Удалить", "DeleteDepartment", new { id=item.Id})</td>
+            <td>@Html.ActionLink("Удалить", "DeleteCategory", new { id = item.Id })</td>
         </tr>
     }
 </table>

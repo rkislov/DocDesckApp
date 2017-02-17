@@ -23,9 +23,10 @@ namespace DocDesckApp.Models
         [Display(Name = "Содержание")]
         [MaxLength(50, ErrorMessage = "Превышена максимальная длинна записи")]
         public string ShortText { get; set; }
-        [Required]
+        
         [Display(Name = "Коментарий")]
         [MaxLength(200, ErrorMessage = "Превышена максимальная длинна записи")]
+        [Required]
         public string Comment { get; set; }
         [Display(Name = "Статус")]
         public int Status { get; set; }
@@ -35,6 +36,7 @@ namespace DocDesckApp.Models
         public Guid? ActivId { get; set; }
         public Activ Activ { get; set; }
         [Display(Name = "Фаил")]
+        
         public string File { get; set; }
         [Display(Name = "Тип документа")]
         public Guid? CategoryId { get; set; }
