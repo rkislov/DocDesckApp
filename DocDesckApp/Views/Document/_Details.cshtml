@@ -1,0 +1,9 @@
+﻿@model DocDesckApp.Models.Document
+<div>
+    <p><b>Подробный сведения о @Html.DisplayFor(m=>m.Category.Name) от @Html.DisplayFor(m=>m.Organization.ShortName)</b></p>
+    <p>Номер: @Html.DisplayFor(m=>m.Number)</p>
+    <p>От: @Html.DisplayFor(m => m.Date)</p>
+    <p>Содержание: @Html.DisplayFor(m=>m.ShortText)</p>
+    <p>Группа: @Html.DisplayFor(m => m.Activ.Department.Name)</p>
+    <p>Коментарий: @Html.DisplayFor(m => m.Comment)</p>
+</div>

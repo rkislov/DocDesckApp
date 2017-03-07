@@ -95,5 +95,29 @@ namespace DocDesckApp.Controllers
 
             return View(documents.ToList());
         }
+
+        public ActionResult Details(Guid id)
+        {
+            Document document = db.Documents.Find(id);
+
+            if(document != null)
+            {
+                //получаем кабинет
+                var activ = db.Activs.Where(m => m.Id == document.ActivId);
+
+                // так как кабинет у нас может быть не указан, и набор может возвращать 0 значений
+                if (activ.Count()>0)
+                {
+                    document.Activ = activ.First();
+
+                }
+                //Получаем категорию
+                document.Category = db.Categorys.Where(m => m.Id == document.CategoryId).First();
+                document.Organization = db.Organizations.Where(m => m.Id == document.OrganizationId).First();
+                
+                return PartialView("_Details", document);
+            }
+            return View("Index");
+        }
     }
 }

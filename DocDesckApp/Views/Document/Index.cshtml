@@ -79,15 +79,20 @@
              @Html.DisplayFor(modelItem => item.ShortText)
          </td>
          <td>
-             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Описание документа" href="Document/Details/@item.Id"><img src="~/Content/pictures/info.png" class="tdImage" title="Описание документа" /></div>
+             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Описание документа" href="Document/Details/@item.Id"><img src="~/Content/pictures/info.png" class="tdImage" title="Описание документа" /></a></div>
          </td>
          @*<td>
-             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Исполнитель документа" href="Document/Executor/@item.ExecutorId"><img src="~/Content/pictures/executor.png" class="tdImage" title="Исполнитель документа" /></div>
-         </td>*@
+        <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Исполнитель документа" href="Document/Executor/@item.ExecutorId"><img src="~/Content/pictures/executor.png" class="tdImage" title="Исполнитель документа" /></a></div>
+    </td>*@
          <td>
-             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Жизненный цикл" href="Document/Lifecircle/@item.LifecycleId"><img src="~/Content/pictures/lifecycle.png" class="tdImage" title="Жизненный цикл" /></div>
+             <div><a class="openDialog" data-dialog-id="infoDialog" data-dialog-title="Жизненный цикл" href="Document/Lifecircle/@item.LifecycleId"><img src="~/Content/pictures/lifecycle.png" class="tdImage" title="Жизненный цикл" /></a></div>
          </td>
      </tr>
     }
 </table>
+
+@Styles.Render("~/Content/themes/base/css")
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+}
 

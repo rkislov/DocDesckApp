@@ -13,7 +13,7 @@ namespace HelpDeskTrain
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js",
-                         "~/Scripts/helpdesk.js"));
+                         "~/Scripts/dockdesk.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
